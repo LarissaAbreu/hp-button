@@ -1,0 +1,43 @@
+<link rel="import" href="bower_components/polymer/polymer-element.html">
+
+<dom-module id="hp-button">
+
+  <template>
+
+    <style>
+      :host {
+        display: inline-block;
+        background: var(--hp-background, #000);
+        padding: 10px;
+        margin: var(--hp-margin, 5px);
+        color: var(--hp-color, #fff);
+        font-size: var(--hp-fontsize, 20px);
+        font-weight: var(--hp-fontweight, normal);
+        border-radius: var(--hp-borderradius, 5px);
+        box-shadow: var(--hp-boxshadow, 3px 3px 5px grey);
+      }
+
+      :host(:hover) {
+        cursor: pointer;
+      }
+
+      :host(:active) {
+        background: var(--hp-color, #fff);
+        color: var(--hp-background, #000);
+      }
+    </style>
+    <slot></slot>
+  </template>
+
+  <script>
+    
+    class hpButton extends Polymer.Element {
+      static get is() {
+        return 'hp-button';
+      }
+    }
+
+    window.customElements.define(hpButton.is, hpButton);
+  </script>
+
+</dom-module>

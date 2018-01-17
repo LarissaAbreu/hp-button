@@ -1,0 +1,16 @@
+{
+  "name": "hpButton",
+  "authors": [
+    "Larissa Abreu <contato@larissaabreu.com.br>"
+  ],
+  "description": "",
+  "main": "hp-button",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

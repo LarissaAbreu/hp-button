@@ -1,0 +1,16 @@
+<link rel="import" href="hp-button.html">
+
+<style is="custom-style">
+  .grifinoria {
+    --hp-background: red;
+    --hp-margin: 25px;
+    --hp-color: gold;
+    --hp-boxshadow: 2px 2px 5px var(--hp-color);
+  }
+
+  .grifinoria:active {
+    --hp-boxshadow: 2px 2px 5px var(--hp-background);
+  }
+</style>
+
+<hp-button class="grifinoria">Teste</hp-button>
