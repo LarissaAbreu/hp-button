@@ -3,21 +3,77 @@
 <style is="custom-style">
   .grifinoria {
     --hp-background: red;
-    --hp-margin: 25px;
     --hp-color: gold;
     --hp-boxshadow: 2px 2px 5px var(--hp-color);
   }
 
-  .grifinoria:active {
-    --hp-boxshadow: 2px 2px 5px var(--hp-background);
+  .sonserina {
+    --hp-background: green;
+    --hp-color: silver;
+    --hp-boxshadow: 2px 2px 5px var(--hp-color);
+  }
+
+  .corvinal {
+    --hp-background: blue;
+    --hp-color: silver;
+    --hp-boxshadow: 2px 2px 5px var(--hp-color);
+  }
+
+  .lufa-lufa {
+    --hp-background: yellow;
+    --hp-color: black;
+    --hp-boxshadow: 2px 2px 5px var(--hp-color);
+  }
+
+  #bandeira {
+    width: 500px;
+    height: 250px;
+  }
+
+  .cor-principal,
+  .cor-secundaria {
+    height: 25%;
+    width: 100%;
   }
 </style>
 
-<hp-button class="grifinoria" id="hp">Teste</hp-button>
+<div id="bandeira">
+  <div class="cor-principal"></div>
+  <div class="cor-secundaria"></div>
+  <div class="cor-principal"></div>
+  <div class="cor-secundaria"></div>
+</div>
+
+<hp-button class="grifinoria" id="grifinoria">Grifinória</hp-button>
+
+<hp-button class="sonserina" id="sonserina">Sonserina</hp-button>
+
+<hp-button class="corvinal" id="corvinal">Corvinal</hp-button>
+
+<hp-button class="lufa-lufa" id="lufa-lufa">Lufa-lufa</hp-button>
 
 <script>
-  const hp = document.getElementById("hp");
-  hp.addEventListener('click', () => {
-    console.log("dsdsdsdsd")
-  })
+
+  const corPrincipal = document.getElementsByClassName("cor-principal");
+  const corSecundaria = document.getElementsByClassName("cor-secundaria");
+  const grifinoria = document.getElementById("grifinoria");
+  const sonserina = document.getElementById("sonserina");
+  const corvinal = document.getElementById("corvinal");
+  const lufaLufa = document.getElementById("lufa-lufa");
+
+  grifinoria.addEventListener('click', () => setColor(grifinoria));
+  sonserina.addEventListener('click', () => setColor(sonserina));
+  corvinal.addEventListener('click', () => setColor(corvinal));
+  lufaLufa.addEventListener('click', () => setColor(lufaLufa));
+
+  const setColor = (el) => {
+    const principalColor = window.getComputedStyle(el).getPropertyValue("--hp-background");
+    const secundarioColor = window.getComputedStyle(el).getPropertyValue("--hp-color");
+
+    corPrincipal[0].style.background = principalColor;
+    corSecundaria[0].style.background = secundarioColor;
+    corPrincipal[1].style.background = principalColor;
+    corSecundaria[1].style.background = secundarioColor;
+  }
+  
 </script>
