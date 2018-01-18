@@ -1,6 +1,6 @@
 <link rel="import" href="bower_components/polymer/polymer-element.html">
 
-<dom-module id="hp-button">
+<dom-module id="hp-button" role="button">
 
   <template>
 
@@ -25,6 +25,12 @@
         background: var(--hp-color, #fff);
         color: var(--hp-background, #000);
       }
+      :host([disabled]) {
+        cursor: default;
+        background: var(--hp-background-disabled, rgba(112, 112, 112, 0.055));
+        color: var(--hp-color-disabled, #000);
+        box-shadow: 3px 3px 5px grey;
+      }
     </style>
     <slot></slot>
   </template>
@@ -34,6 +40,50 @@
     class hpButton extends Polymer.Element {
       static get is() {
         return 'hp-button';
+      }
+
+      ready() {
+        super.ready();
+        this.setProps();
+        this.addEventListener('keydown', this._handleKeyDown);
+      }
+
+      setProps() {
+        if(!this.hasAttribute('role')) {
+          this.setAttribute('role', 'button');
+        };
+      }
+
+      _handleKeyDown(e) {
+        const pressSpace = e.which == 32 || e.keyCode == 32;
+        const pressEnter = e.which == 13 || e.keyCode == 13;
+        if (pressSpace || pressEnter) {
+          e.preventDefault();
+          this.click();
+        }
+      }
+
+      _toogleDisabled(newBooleanValue) {
+        if(newBooleanValue) {
+          this.removeAttribute('tabIndex');
+          this.setAttribute('aria-disabled', true);
+          this.style.pointerEvents = "none";
+        } else {
+          this.setAttribute('tabIndex','0');
+          this.removeAttribute('aria-disabled');
+          this.style.pointerEvents = "auto";
+        }
+      }
+
+      static get properties() {
+        return {
+          disabled: {
+            type: Boolean,
+            value: false,
+            observer: '_toogleDisabled',
+            reflectToAttribute: true
+          }
+        }
       }
     }
 
