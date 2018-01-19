@@ -4,5 +4,6 @@ sudo: required
 before_script:
 - npm install -g bower polymer-cli eslint eslint-plugin-html
 - bower install
+script:
 - polymer lint
 - eslint *.html
