@@ -42,3 +42,45 @@ Custom property                     | Default                    | Description
 --hp-boxshadow                      | 3px 3px 5px grey           | Box-shadow button
 --hp-background-disabled            | rgba(112, 112, 112, 0.055) | Button disabled background color
 --hp-color-disabled                 | #000000                    | Button disabled color
+
+## Development
+
+1 - Install [Bower](http://bower.io/) & [Polymer-CLI](https://www.polymer-project.org/1.0/docs/tools/polymer-cli):
+
+```sh
+$ [sudo] npm install -g bower polymer-cli
+```
+
+2 - Install local dependencies:
+
+```sh
+$ bower install
+```
+
+3 - Start the development server:
+
+```sh
+$ polymer serve
+```
+
+## Tests
+
+#### Linting
+
+Linting with eslint:
+
+```sh
+$ [sudo] npm install -g eslint
+$ [sudo] npm install -g eslint-plugin-html
+
+$ eslint *.html
+```
+
+Linting with polylint:
+
+```sh
+$ polymer lint
+
+## License
+
+[Larissa Abreu](https://github.com/LarissaAbreu) ©
