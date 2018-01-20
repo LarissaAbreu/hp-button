@@ -80,6 +80,7 @@ Linting with polylint:
 
 ```sh
 $ polymer lint
+```
 
 ## License
 
